@@ -1,0 +1,4 @@
+agency_id	user_id	amount
+1	1	1547
+2	2	2577
+3	3	0.00

@@ -1,0 +1,64 @@
+-- --------------------------------------------------------
+-- Хост:                         127.0.0.1
+-- Версия сервера:               5.5.41-log - MySQL Community Server (GPL)
+-- ОС Сервера:                   Win32
+-- HeidiSQL Версия:              9.1.0.4867
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Дамп структуры базы данных mir
+DROP DATABASE IF EXISTS `mir`;
+CREATE DATABASE IF NOT EXISTS `mir` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `mir`;
+
+
+-- Дамп структуры для таблица mir.agency
+DROP TABLE IF EXISTS `agency`;
+CREATE TABLE IF NOT EXISTS `agency` (
+  `agency_id` int(11) NOT NULL,
+  `agency_network_id` int(11) NOT NULL,
+  `agency_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Экспортируемые данные не выделены.
+
+
+-- Дамп структуры для таблица mir.agency_network
+DROP TABLE IF EXISTS `agency_network`;
+CREATE TABLE IF NOT EXISTS `agency_network` (
+  `agency_network_id` int(11) NOT NULL,
+  `agency_network_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Экспортируемые данные не выделены.
+
+
+-- Дамп структуры для таблица mir.billing
+DROP TABLE IF EXISTS `billing`;
+CREATE TABLE IF NOT EXISTS `billing` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agency_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Экспортируемые данные не выделены.
+
+
+-- Дамп структуры для таблица mir.users
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Экспортируемые данные не выделены.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,11 @@
+# InstantCMS rewriting rules
+
+# Initialization
+AddDefaultCharset utf-8
+RewriteEngine on
+RewriteBase /
+
+# Engine routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php [L]
